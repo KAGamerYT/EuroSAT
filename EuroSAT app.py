@@ -19,7 +19,7 @@ def preprocess_image(img):
         img_array = img_array[..., :3]
     img_array = np.expand_dims(img_array, axis=0)
     return img_array
-st.write(f"Model input shape: {model.input_shape}")
+st.write("Prediction probabilities:", prediction)
 # Streamlit app
 st.title("🌍 EuroSAT Land Use Classifier")
 st.write("Upload a satellite image to classify its land use type.")
