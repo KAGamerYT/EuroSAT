@@ -32,6 +32,8 @@ if uploaded_file is not None:
 
     # Preprocess and predict
     img_array = preprocess_image(image)
+    st.write("Model expects input shape:", model.input_shape)
+    st.write("Your input image shape:", img_array.shape)
     prediction = model.predict(img_array)
     predicted_class = class_names[np.argmax(prediction)]
     st.write("Prediction probabilities:", prediction)
