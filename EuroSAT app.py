@@ -13,8 +13,7 @@ class_names = ['AnnualCrop', 'Forest', 'HerbaceousVegetation', 'Highway', 'Indus
 
 # Define image preprocessing
 def preprocess_image(img):
-    expected_size = model.input_shape[1:3]
-    img = img.resize(expected_size)  # match your input size
+    img = img.resize((224, 224))
     img_array = np.array(img) / 255.0  # normalize
     if img_array.shape[-1] == 4:  # remove alpha if exists
         img_array = img_array[..., :3]
@@ -33,9 +32,6 @@ if uploaded_file is not None:
 
     # Preprocess and predict
     img_array = preprocess_image(image)
-    st.write("Model expects input shape:", model.input_shape)
-    st.write("Your input image shape:", img_array.shape)
     prediction = model.predict(img_array)
     predicted_class = class_names[np.argmax(prediction)]
-    st.write("Prediction probabilities:", prediction)
     st.markdown(f"### 🧠 Predicted Class: {predicted_class}")
