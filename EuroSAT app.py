@@ -13,7 +13,7 @@ class_names = ['AnnualCrop', 'Forest', 'HerbaceousVegetation', 'Highway', 'Indus
 
 # Define image preprocessing
 def preprocess_image(img):
-    img = img.resize((224, 224))
+    img = img.resize((64, 64))
     img_array = np.array(img) / 255.0  # normalize
     if img_array.shape[-1] == 4:  # remove alpha if exists
         img_array = img_array[..., :3]
