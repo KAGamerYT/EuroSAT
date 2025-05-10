@@ -13,13 +13,13 @@ class_names = ['AnnualCrop', 'Forest', 'HerbaceousVegetation', 'Highway', 'Indus
 
 # Define image preprocessing
 def preprocess_image(img):
-    img = img.resize((64, 64))  # match your input size
-    img_array = np.array(img) / 255.0  # normalize
-    if img_array.shape[-1] == 4:  # remove alpha if exists
+    img = img.resize((64, 64))  # Use 64x64 if model was trained on EuroSAT default
+    img_array = np.array(img) / 255.0
+    if img_array.shape[-1] == 4:
         img_array = img_array[..., :3]
-    img_array = np.expand_dims(img_array, axis=0)  # batch dimension
+    img_array = np.expand_dims(img_array, axis=0)
     return img_array
-
+st.write(f"Model input shape: {model.input_shape}")
 # Streamlit app
 st.title("🌍 EuroSAT Land Use Classifier")
 st.write("Upload a satellite image to classify its land use type.")
