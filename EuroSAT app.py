@@ -34,5 +34,5 @@ if uploaded_file is not None:
     img_array = preprocess_image(image)
     prediction = model.predict(img_array)
     predicted_class = class_names[np.argmax(prediction)]
-
+    st.write("Prediction probabilities:", prediction)
     st.markdown(f"### 🧠 Predicted Class: {predicted_class}")
