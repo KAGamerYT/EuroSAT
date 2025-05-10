@@ -5,7 +5,7 @@ from PIL import Image
 import numpy as np
 
 # Load model
-model = load_model("/content/EuroSAT Model.h5")
+model = load_model("EuroSAT Model.h5")
 
 # Define classes
 class_names = ['AnnualCrop', 'Forest', 'HerbaceousVegetation', 'Highway', 'Industrial',
