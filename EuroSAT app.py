@@ -9,7 +9,7 @@ model = load_model("my_model.h5")
 
 # Define classes
 class_names = ['AnnualCrop', 'Forest', 'HerbaceousVegetation', 'Highway', 'Industrial', 
-               'Pasture', 'PermanentCrop', 'Residential', 'River']
+               'Pasture', 'PermanentCrop', 'Residential', 'River', 'SeaLake']
 
 # Define image preprocessing
 def preprocess_image(img):
