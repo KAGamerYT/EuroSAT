@@ -28,12 +28,12 @@ uploaded_file = st.file_uploader("Upload an image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file is not None:
     image = Image.open(uploaded_file).convert("RGB")
-    st.write("📷 Image Shape:", img_array.shape)
-    st.write("✅ Model Input Shape:", model.input_shape)
     st.image(image, caption="Uploaded Image", use_container_width=True)
 
     # Preprocess and predict
     img_array = preprocess_image(image)
+    st.write("📷 Image Shape:", img_array.shape)
+    st.write("✅ Model Input Shape:", model.input_shape)
     prediction = model.predict(img_array)
     predicted_class = class_names[np.argmax(prediction)]
     st.markdown(f"### 🧠 Predicted Class: {predicted_class}")
