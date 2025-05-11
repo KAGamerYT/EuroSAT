@@ -32,8 +32,6 @@ if uploaded_file is not None:
 
     # Preprocess and predict
     img_array = preprocess_image(image)
-    st.write("📷 Image Shape:", img_array.shape)
-    st.write("✅ Model Input Shape:", model.input_shape)
     prediction = model.predict(img_array)
     predicted_class = class_names[np.argmax(prediction)]
     st.markdown(f"### 🧠 Predicted Class: {predicted_class}")
